@@ -1,0 +1,29 @@
+{
+  "name": "javascript-snippets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/restlessCalm/javascript-snippets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/restlessCalm/javascript-snippets/issues"
+  },
+  "homepage": "https://github.com/restlessCalm/javascript-snippets#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-batch": "^1.0.5",
+    "gulp-jasmine": "^4.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-watch": "^5.0.0",
+    "jasmine": "^3.1.0"
+  }
+}
