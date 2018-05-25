@@ -1,4 +1,5 @@
-let sorting = require("./../src/sorting/merge-sort");
+let MergeSort = require("./../src/sorting/merge-sort");
+let QuickSort = require("./../src/sorting/quick-sort");
 
 describe("SORT TESTING:", () => {
   let comp = (a, b) => a > b;
@@ -10,33 +11,65 @@ describe("SORT TESTING:", () => {
   let evenLengthArray = [8, 1, 4, 3, 7, 5, 2, 6];
   let oddLengthArray = [8, 1, 4, 3, 7, 5, 2, 6, 13, 10, 11, 9, 12];
 
-  describe("merge sort recursion", () => {
+  describe("merge sort", () => {
     it("should sort the empty list", () => {
-      expect(sorting.mergeSortRecursion(emptyArray)).toEqual(emptyArray);
+      expect(MergeSort.mergeSort(emptyArray)).toEqual(emptyArray);
     });
 
     it("should sort a list of length 1", () => {
-      expect(sorting.mergeSortRecursion(arrayOfLength1)).toEqual(
+      expect(MergeSort.mergeSort(arrayOfLength1)).toEqual(
         arrayOfLength1
       );
     });
 
     it("should sort a list of numbers", () => {
-      expect(sorting.mergeSortRecursion(evenLengthArray)).toEqual(
-        evenLengthArray.sort(sortAsc)
+      expect(MergeSort.mergeSort(evenLengthArray)).toEqual(
+        evenLengthArray.slice().sort(sortAsc)
       );
     });
 
     it("should sort a list of numbers of odd length", () => {
-      expect(sorting.mergeSortRecursion(oddLengthArray)).toEqual(
-        oddLengthArray.sort(sortAsc)
+      expect(MergeSort.mergeSort(oddLengthArray)).toEqual(
+        oddLengthArray.slice().sort(sortAsc)
       );
     });
 
     it("should use a custom comparator", () => {
-      expect(sorting.mergeSortRecursion(evenLengthArray, comp)).toEqual(
-        evenLengthArray.sort(sortDesc)
+      expect(MergeSort.mergeSort(evenLengthArray, comp)).toEqual(
+        evenLengthArray.slice().sort(sortDesc)
       );
     });
   });
+
+  describe("quick sort", () => {
+    it("should sort the empty list", () => {
+      expect(QuickSort.quickSort(emptyArray)).toEqual(emptyArray);
+    });
+
+    it("should sort a list of length 1", () => {
+      expect(QuickSort.quickSort(arrayOfLength1)).toEqual(
+        arrayOfLength1
+      );
+    });
+
+    it("should sort a list of numbers", () => {
+      expect(QuickSort.quickSort(evenLengthArray)).toEqual(
+        evenLengthArray.slice().sort(sortAsc)
+      );
+    });
+
+    it("should sort a list of numbers of odd length", () => {
+      expect(QuickSort.quickSort(oddLengthArray)).toEqual(
+        oddLengthArray.slice().sort(sortAsc)
+      );
+    });
+
+    it("should use a custom comparator", () => {
+      expect(QuickSort.quickSort(evenLengthArray, comp)).toEqual(
+        evenLengthArray.slice().sort(sortDesc)
+      );
+    });
+  });
+
+
 });
