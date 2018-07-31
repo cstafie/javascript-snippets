@@ -3,8 +3,7 @@ Array.prototype.lazyMap = function (cb) {
   if (this.cb) {
     let oldCb = this.cb;
     this.cb = (v) => cb(oldCb(v));
-  }
-  else {
+  } else {
     this.cb = cb;
   }
   return this;
