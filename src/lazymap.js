@@ -1,12 +1,15 @@
 // lazy map and lazy index
 Array.prototype.lazyMap = function (cb) {
-  if (this.cb) {
-    let oldCb = this.cb;
-    this.cb = (v) => cb(oldCb(v));
-  } else {
-    this.cb = cb;
+  let newArr = Array.from(this);
+  newArr.cb = this.cb;
+  if (newArr.cb) {
+    let oldCb = newArr.cb;
+    newArr.cb = (v) => cb(oldCb(v));
   }
-  return this;
+  else {
+    newArr.cb = cb;
+  }
+  return newArr;
 };
 
 Array.prototype.lazyIndexOf = function(val) {
